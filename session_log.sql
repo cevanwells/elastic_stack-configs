@@ -1,0 +1,5 @@
+SELECT 
+`tbluserpcrdetail`.`pcrKey` AS `id`,
+`tbluserpcrdetail`.`pcrDateTime` AS `session_timestamp`,
+`tbluserpcrdetail`.`pcrBranch` AS `branch`,
+`tbluserpcrdetail`.`pcrPC` AS `computer`,(case `tbluserpcrdetail`.`pcrIsGuest` when 0 then 'No' else 'Yes' end) AS `is_guest`,`tbluserpcrdetail`.`pcrQuotedWait` AS `quoted_wait`,`tbluserpcrdetail`.`pcrActualWait` AS `actual_wait`,`tbluserpcrdetail`.`pcrStartTime` AS `start_time`,`tbluserpcrdetail`.`pcrStopTime` AS `end_time`,`tbluserpcrdetail`.`pcrExtraTimeExtensions` AS `times_extended`,`tbluserpcrdetail`.`pcrMinutesUsed` AS `minutes_used`,(case `tbluserpcrdetail`.`pcrWhereMade` when 1 then 'PC' when 2 then 'Reservation Station' when 3 then 'Management Console' when 4 then 'Web Module' when 5 then 'Staff' else 'Unknown' end) AS `reservation_location`,(case `tbluserpcrdetail`.`pcrStatus` when 512 then 'No' when 1024 then 'Yes' end) AS `session_interrupted` from `tbluserpcrdetail` where ((`tbluserpcrdetail`.`pcrStatus` = 512) or (`tbluserpcrdetail`.`pcrStatus` = 1024)) order by `tbluserpcrdetail`.`pcrKey` desc
