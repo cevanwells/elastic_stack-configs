@@ -1,0 +1,67 @@
+{
+    "version": 5,
+    "template": "pcres-*",
+    "settings": {
+        "index": {
+            "number_of_shards": "3"
+        }
+    },
+    "mappings": {
+        "pcres_session": {
+            "dynamic": false,
+            "_all": {
+                "enabled": false
+            },
+            "properties": {
+                "session_interrupted": {
+                    "type": "boolean"
+                },
+                "is_guest": {
+                    "type": "boolean"
+                },
+                "times_extended": {
+                    "type": "integer"
+                },
+                "quoted_wait": {
+                    "type": "integer"
+                },
+                "end_time": {
+                    "type": "date"
+                },
+                "reservation_location": {
+                    "type": "keyword"
+                },
+                "session_timestamp": {
+                    "type": "date"
+                },
+                "branch": {
+                            "properties": {
+                              "name": {
+                                "type": "keyword"
+                              },
+                              "location": {
+                                "type": "geo_point"
+                              }
+                            }
+                          },
+                "minutes_used": {
+                    "type": "integer"
+                },
+                "start_time": {
+                    "type": "date"
+                },
+                "computer": {
+                    "type": "keyword"
+                },
+                "actual_wait": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "aliases": {
+    }
+}

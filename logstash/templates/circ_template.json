@@ -1,0 +1,81 @@
+{
+    "version": 15,
+    "template": "circulation-*",
+    "settings": {
+        "index": {
+            "number_of_shards": "3"
+        }
+    },
+    "mappings": {
+        "circ_transaction": {
+            "dynamic": false,
+            "_all": {
+                "enabled": false
+            },
+            "properties": {
+                "item_type": {
+                    "type": "keyword"
+                },
+                "patron_municipality": {
+                    "properties": {
+                        "name": {
+                            "type": "keyword"
+                        },
+                        "location": {
+                            "type": "geo_point"
+                        }
+                    }
+                },
+                "patron_type": {
+                    "type": "keyword"
+                },
+                "item_location": {
+                    "type": "keyword"
+                },
+                "circ_app": {
+                    "type": "keyword"
+                },
+                "patron_zip": {
+                    "type": "keyword"
+                },
+                "circ_operation": {
+                    "type": "keyword"
+                },
+                "patron_branch": {
+                    "properties": {
+                        "name": {
+                            "type": "keyword"
+                        },
+                        "location": {
+                            "type": "geo_point"
+                        }
+                    }
+                },
+                "circ_timestamp": {
+                    "type": "date"
+                },
+                "circ_branch": {
+                    "properties": {
+                        "name": {
+                            "type": "keyword"
+                        },
+                        "location": {
+                            "type": "geo_point"
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "item_title": {
+                    "type": "keyword"
+                },
+                "circ_source": {
+                    "type": "keyword"
+                }
+            }
+        }
+    },
+    "aliases": {
+    }
+}
